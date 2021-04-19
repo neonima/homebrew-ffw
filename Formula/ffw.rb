@@ -5,10 +5,12 @@ class Ffw < Formula
   sha256 "1ad09786be60476fd35827a3e2f52ca721713f7466046408810b8931f2efc3a7"
   license "MIT"
 
-  depends_on "go" => :build
-
+  depends_on :arch => :x86_64
+  
   def install
-    system "go", "build", *std_go_args
+    %w[ffw].each do |exe| 
+      bin.install exe
+    end
   end
 
   test do
